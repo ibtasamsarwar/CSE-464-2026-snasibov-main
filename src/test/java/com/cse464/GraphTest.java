@@ -462,6 +462,7 @@ public class GraphTest {
         // Random walk may or may not find C depending on randomness; ensure the call doesn't throw
     }
 
+    // ============== Helper Method ==============
 
     /**
      * Helper: Assert that a function doesn't throw an exception
