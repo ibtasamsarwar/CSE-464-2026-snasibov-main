@@ -1,0 +1,18 @@
+digraph ComplexGraph {
+    rankdir=LR;
+    node [shape=box, style=filled, fillcolor=lightblue];
+    
+    A [label="Node A"];
+    B [label="Node B"];
+    C [label="Node C"];
+    D [label="Node D"];
+    E [label="Node E"];
+    
+    A -> B;
+    B -> C;
+    C -> D;
+    D -> E;
+    A -> D;
+    B -> E;
+    C -> E;
+}

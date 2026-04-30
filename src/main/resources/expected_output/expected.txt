@@ -1,0 +1,8 @@
+Graph Information:
+Number of Nodes: 3
+Node Labels: A B C
+Number of Edges: 3
+Edge List:
+  A -> B
+  B -> C
+  A -> C
