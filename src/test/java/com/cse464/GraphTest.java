@@ -459,7 +459,6 @@ public class GraphTest {
                 "C", bfsPath.get(bfsPath.size()-1));
         assertEquals("All strategies should yield a path ending at C if reachable",
                 "C", dfsPath.get(dfsPath.size()-1));
-        // Random walk may or may not find C depending on randomness; ensure the call doesn't throw
     }
 
     // ============== Helper Method ==============
