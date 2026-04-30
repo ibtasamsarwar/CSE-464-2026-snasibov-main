@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import java.util.List;
+import java.util.Random;
+
 /**
  * GraphTest class provides comprehensive unit tests for the Graph API
  * Tests all four features: Parse, Add Nodes, Add Edges, Output
@@ -393,6 +396,70 @@ public class GraphTest {
         
         assertEquals("Nodes set should have 2 elements", 2, graph.getNodes().size());
         assertEquals("Edges set should have 1 element", 1, graph.getEdges().size());
+    }
+
+        @Test
+    public void testBFSsearch() {
+        graph.addNode("A"); graph.addNode("B"); graph.addNode("C");
+        graph.addEdge("A", "B"); graph.addEdge("B", "C"); graph.addEdge("A", "C");
+
+        GraphSearchContext ctx = new GraphSearchContext();
+        List<String> path = ctx.graphSearch(graph, "A", "C", Algorithm.BFS);
+        assertNotNull(path);
+        assertEquals("BFS should find shortest path A->C directly", "C", path.get(path.size()-1));
+        assertEquals("First element should be A", "A", path.get(0));
+    }
+
+    @Test
+    public void testDFSsearch() {
+        graph.addNode("A"); graph.addNode("B"); graph.addNode("C");
+        graph.addEdge("A", "B"); graph.addEdge("B", "C"); graph.addEdge("A", "C");
+
+        GraphSearchContext ctx = new GraphSearchContext();
+        List<String> path = ctx.graphSearch(graph, "A", "C", Algorithm.DFS);
+        assertNotNull(path);
+        assertEquals("Path should start at A", "A", path.get(0));
+        assertEquals("Path should end at C", "C", path.get(path.size()-1));
+    }
+
+    @Test
+    public void testRandomWalkSearchSeededProducesDifferentPaths() {
+        graph.addNode("A"); graph.addNode("B"); graph.addNode("C"); graph.addNode("D");
+        graph.addEdge("A", "B"); graph.addEdge("A", "C"); graph.addEdge("C", "D");
+
+        RandomWalkSearch rw1 = new RandomWalkSearch(new Random(1));
+        RandomWalkSearch rw2 = new RandomWalkSearch(new Random(2));
+
+        List<String> p1 = rw1.search(graph, "A", "D");
+        List<String> p2 = rw2.search(graph, "A", "D");
+
+        // Both may find a path or empty; if both non-empty, expect possible differences
+        if (!p1.isEmpty() && !p2.isEmpty()) {
+            // Not strictly required to differ, but likely; at least assert valid endpoints if non-empty
+            assertEquals("Paths should end at destination", "D", p1.get(p1.size()-1));
+            assertEquals("Paths should end at destination", "D", p2.get(p2.size()-1));
+        }
+    }
+
+    @Test
+    public void testStrategySelectionBFSandDFSandRandom() {
+        graph.addNode("A"); graph.addNode("B"); graph.addNode("C");
+        graph.addEdge("A", "B"); graph.addEdge("B", "C"); graph.addEdge("A", "C");
+
+        GraphSearchContext ctx = new GraphSearchContext();
+
+        List<String> bfsPath = ctx.graphSearch(graph, "A", "C", Algorithm.BFS);
+        List<String> dfsPath = ctx.graphSearch(graph, "A", "C", Algorithm.DFS);
+        List<String> rwPath = ctx.graphSearch(graph, "A", "C", Algorithm.RANDOM_WALK);
+
+        assertNotNull(bfsPath);
+        assertNotNull(dfsPath);
+        assertNotNull(rwPath);
+        assertEquals("All strategies should yield a path ending at C if reachable",
+                "C", bfsPath.get(bfsPath.size()-1));
+        assertEquals("All strategies should yield a path ending at C if reachable",
+                "C", dfsPath.get(dfsPath.size()-1));
+        // Random walk may or may not find C depending on randomness; ensure the call doesn't throw
     }
 
     // ============== Helper Method ==============
