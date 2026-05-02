@@ -185,19 +185,19 @@ Enhanced readability and simplified debugging.
 ## 7. Refactoring Commit Links
 
 1. Method Renaming
-   https://github.com/ibtasamsarwar/CSE-464-2026-snasibov-main/commit/0c2f332
+   https://github.com/snasibov-1/CSE-464-2026-snasibov-main/commit/0c2f332
 
 2. Code Extraction
-   https://github.com/ibtasamsarwar/CSE-464-2026-snasibov-main/commit/8632e35
+   https://github.com/snasibov-1/CSE-464-2026-snasibov-main/commit/8632e35
 
 3. Structure Refactor
-   https://github.com/ibtasamsarwar/CSE-464-2026-snasibov-main/commit/8165a2a
+   https://github.com/snasibov-1/CSE-464-2026-snasibov-main/commit/8165a2a
 
 4. Exception Handling
-   https://github.com/ibtasamsarwar/CSE-464-2026-snasibov-main/commit/181b9ed
+   https://github.com/snasibov-1/CSE-464-2026-snasibov-main/commit/181b9ed
 
 5. Method Decomposition
-   https://github.com/ibtasamsarwar/CSE-464-2026-snasibov-main/commit/173f920
+   https://github.com/snasibov-1/CSE-464-2026-snasibov-main/commit/173f920
 
 ---
 
@@ -235,7 +235,7 @@ This approach promotes code reuse and eliminates duplication.
 
 ### Template Pattern Commit
 
-https://github.com/ibtasamsarwar/CSE-464-2026-snasibov-main/commit/e9db35c
+https://github.com/snasibov-1/CSE-464-2026-snasibov-main/commit/e9db35c
 
 ---
 
@@ -269,7 +269,7 @@ This design:
 
 ### Strategy Pattern Commit
 
-https://github.com/ibtasamsarwar/CSE-464-2026-snasibov-main/commit/9de5f0e
+https://github.com/snasibov-1/CSE-464-2026-snasibov-main/commit/9de5f0e
 
 ---
 
@@ -295,7 +295,7 @@ A probabilistic search algorithm was introduced.
 
 ### Random Walk Commit
 
-https://github.com/ibtasamsarwar/CSE-464-2026-snasibov-main/commit/170cdbb
+https://github.com/snasibov-1/CSE-464-2026-snasibov-main/commit/170cdbb
 
 ---
 
@@ -317,7 +317,7 @@ This confirms:
 
 * PR created from `refactor → main`
 
-**Link:** https://github.com/ibtasamsarwar/CSE-464-2026-snasibov-main/pull/1
+**Link:** https://github.com/snasibov-1/CSE-464-2026-snasibov-main/pull/1
 
 The PR is intentionally left unmerged as required before demonstration.
 
