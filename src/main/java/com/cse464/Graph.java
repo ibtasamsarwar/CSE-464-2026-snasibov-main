@@ -117,6 +117,22 @@ public class Graph {
     }
 
     /**
+     * Get the outgoing neighbor labels for a given node
+     *
+     * @param nodeLabel the source node label
+     * @return list of neighbor node labels (order preserved)
+     */
+    public List<String> getNeighbors(String nodeLabel) {
+        List<String> neighbors = new ArrayList<>();
+        for (Edge edge : edges) {
+            if (edge.getSource().equals(nodeLabel)) {
+                neighbors.add(edge.getDestination());
+            }
+        }
+        return neighbors;
+    }
+
+    /**
      * Check if a node exists in the graph
      *
      * @param label the node label
@@ -173,7 +189,7 @@ public class Graph {
      */
     public void outputGraph(String filepath) {
         try {
-            Files.write(Paths.get(filepath), toString().getBytes());
+            writeStringToFile(filepath, toString());
         } catch (IOException e) {
             System.err.println("Error writing graph to file: " + e.getMessage());
         }
@@ -196,10 +212,15 @@ public class Graph {
         sb.append("}\n");
         
         try {
-            Files.write(Paths.get(filepath), sb.toString().getBytes());
+            writeStringToFile(filepath, sb.toString());
         } catch (IOException e) {
             System.err.println("Error writing DOT file: " + e.getMessage());
         }
+    }
+
+    private void writeStringToFile(String filepath, String content) throws IOException {
+        Files.createDirectories(Paths.get(filepath).getParent());
+        Files.write(Paths.get(filepath), content.getBytes());
     }
 
     /**

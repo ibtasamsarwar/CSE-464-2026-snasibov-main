@@ -35,13 +35,13 @@ public class GraphProcessor {
      * @param graph the graph to analyze
      * @return array of source node labels
      */
-    public static String[] findSourceNodes(Graph graph) {
+    public static String[] getSourceNodes(Graph graph) {
         java.util.Set<String> sourceNodes = new java.util.HashSet<>(graph.getNodes());
-        
+
         for (Edge edge : graph.getEdges()) {
             sourceNodes.remove(edge.getDestination());
         }
-        
+
         return sourceNodes.toArray(new String[0]);
     }
 
@@ -51,13 +51,13 @@ public class GraphProcessor {
      * @param graph the graph to analyze
      * @return array of sink node labels
      */
-    public static String[] findSinkNodes(Graph graph) {
+    public static String[] getSinkNodes(Graph graph) {
         java.util.Set<String> sinkNodes = new java.util.HashSet<>(graph.getNodes());
-        
+
         for (Edge edge : graph.getEdges()) {
             sinkNodes.remove(edge.getSource());
         }
-        
+
         return sinkNodes.toArray(new String[0]);
     }
 

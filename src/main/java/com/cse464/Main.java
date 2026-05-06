@@ -108,8 +108,8 @@ public class Main {
         GraphProcessor.printGraphStats(graph);
 
         // Find source and sink nodes
-        String[] sources = GraphProcessor.findSourceNodes(graph);
-        String[] sinks = GraphProcessor.findSinkNodes(graph);
+        String[] sources = GraphProcessor.getSourceNodes(graph);
+        String[] sinks = GraphProcessor.getSinkNodes(graph);
 
         System.out.println("Source Nodes: " + String.join(", ", sources));
         System.out.println("Sink Nodes: " + String.join(", ", sinks));
